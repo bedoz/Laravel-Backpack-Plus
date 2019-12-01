@@ -45,9 +45,7 @@
             "providers": [
                 "Bedoz\\BackpackPlus\\BackpackPlusServiceProvider"
             ],
-            "aliases": {
-                "CRUD": "Bedoz\\BackpackPlus\\app\\Library\\CrudPanel\\CrudPanelFacade"
-            }
+            "aliases": {}
         }
     }
 }
