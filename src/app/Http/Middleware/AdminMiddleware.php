@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Bedoz\BackpackPlus\app\Http\Middleware;
 
 use Closure;
 use Spatie\Permission\Models\Role;

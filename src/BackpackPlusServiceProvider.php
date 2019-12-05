@@ -35,6 +35,6 @@ class BackpackPlusServiceProvider extends ServiceProvider {
         Schema::defaultStringLength(191);
 
         $middleware_key = config('backpack.base.middleware_key');
-        $this->app->router->pushMiddlewareToGroup($middleware_key, \App\Http\Middleware\AdminMiddleware::class);
+        $this->app->router->pushMiddlewareToGroup($middleware_key, \Bedoz\BackpackPlus\app\Http\Middleware\AdminMiddleware::class);
     }
 }
