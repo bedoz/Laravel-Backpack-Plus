@@ -8,11 +8,21 @@ use Illuminate\Support\Facades\Schema;
 
 class BackpackPlusServiceProvider extends ServiceProvider {
     protected $commands = [
-
+        \Bedoz\BackpackPlus\app\Console\Commands\Install::class,
     ];
 
     // Indicates if loading of the provider is deferred.
     protected $defer = false;
+
+    /**
+     * Register any package services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+
+    }
 
     /**
      * Perform post-registration booting of services.
@@ -23,15 +33,8 @@ class BackpackPlusServiceProvider extends ServiceProvider {
     {
         \DB::statement("SET lc_time_names = 'it_IT'");
         Schema::defaultStringLength(191);
-    }
 
-    /**
-     * Register any package services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-
+        $middleware_key = config('backpack.base.middleware_key');
+        $this->app->router->pushMiddlewareToGroup($middleware_key, \App\Http\Middleware\AdminMiddleware::class);
     }
 }
