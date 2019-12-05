@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Schema;
 class BackpackPlusServiceProvider extends ServiceProvider {
     protected $commands = [
         \Bedoz\BackpackPlus\app\Console\Commands\Install::class,
+        \Bedoz\BackpackPlus\app\Console\Commands\CrudBackpackCommand::class,
+        \Bedoz\BackpackPlus\app\Console\Commands\ViewBackpackCommand::class,
+        \Bedoz\BackpackPlus\app\Console\Commands\ModelBackpackCommand::class,
+        \Bedoz\BackpackPlus\app\Console\Commands\ConfigBackpackCommand::class,
+        \Bedoz\BackpackPlus\app\Console\Commands\RequestBackpackCommand::class,
+        \Bedoz\BackpackPlus\app\Console\Commands\CrudModelBackpackCommand::class,
+        \Bedoz\BackpackPlus\app\Console\Commands\CrudRequestBackpackCommand::class,
+        \Bedoz\BackpackPlus\app\Console\Commands\CrudOperationBackpackCommand::class,
+        \Bedoz\BackpackPlus\app\Console\Commands\CrudControllerBackpackCommand::class,
     ];
 
     // Indicates if loading of the provider is deferred.
@@ -21,7 +30,7 @@ class BackpackPlusServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-
+        $this->commands($this->commands);
     }
 
     /**
