@@ -1,6 +1,7 @@
 <?php
 namespace Bedoz\BackpackPlus;
 
+use Bedoz\BackpackPlus\app\Library\CrudPanel\CrudPanel;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -30,6 +31,12 @@ class BackpackPlusServiceProvider extends ServiceProvider {
      */
     public function register()
     {
+        // Bind the CrudPanel object to Laravel's service container
+        $this->app->singleton('crud', function ($app) {
+            return new \Bedoz\BackpackPlus\app\Library\CrudPanel\CrudPanel($app);
+        });
+
+        // register the artisan commands
         $this->commands($this->commands);
     }
 
